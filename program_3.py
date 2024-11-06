@@ -11,9 +11,25 @@
 def sum_numbers_from_file():
     ######################
     # Add your code here #
+    try:
+        with open("numbers.txt","r") as f:
+            sum = 0
+            for n in f:
+                n = n.strip()
+                sum = sum + int(n)
+
+    except IOError:
+        print("An error occurred trying to read the file.")
+    except ValueError:
+        print("Non_numeric date found in file")
+
+
+
+
+
     ######################
     print('In the sum_numbers_from_file function')
-
+    print(f"The total value of all the numbers in the file is {sum}")
 # You don't need to change anything below this line:
 if __name__ == '__main__':
     sum_numbers_from_file()
